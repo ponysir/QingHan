@@ -16,8 +16,11 @@ public class ThreadPoolTaskExecutorConfig {
         final int cpu = Runtime.getRuntime().availableProcessors();
         //最大线程池数量
         final int corePoolSize = cpu + 1;
+
         final int keepAliveTime = 1;
+
         final int maxQueueNum = 1 << 7;
+
         final int maximumPoolSize = cpu * 2 + 1;
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
@@ -27,6 +30,7 @@ public class ThreadPoolTaskExecutorConfig {
         executor.setQueueCapacity(maxQueueNum);
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setKeepAliveSeconds(keepAliveTime);
+        executor.setAllowCoreThreadTimeOut(true);
 
         // CALLER_RUNS：不在新线程中执行任务，而是有调用者所在的线程来执行
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());

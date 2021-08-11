@@ -22,17 +22,25 @@ public class TaskServiceImpl implements TaskService {
     public void taskGroupName() {
         List<Runnable> tasks = Lists.newArrayList();
         final CountDownLatch countDownLatch = new CountDownLatch(6);
+        tasks.add(() -> {
+
+        });
 
         tasks.add(() -> {
-            try {
-                Thread.sleep(30000);
-                System.out.println(22222);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         });
+
+        tasks.add(() -> {
+
+        });
+
+        tasks.add(() -> {
+
+        });
+
         tasks.add(() -> System.out.println(111111));
         try {
+            //线程开启
             tasks.forEach(threadPoolTaskExecutor::execute);
             countDownLatch.await();
         } catch (InterruptedException e) {
