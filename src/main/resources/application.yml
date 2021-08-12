@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    namespace: 74e8d36b-1e2b-4c65-af8a-cfda356d5ca0
+
+  discovery:
+    server-addr: 172.29.30.154:8848
+
+spring:
+  application:
+    name: zhang-qinghan
+
+
+

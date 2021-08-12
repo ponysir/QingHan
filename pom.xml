@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.daughter</groupId>
     <artifactId>QingHan</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>QingHan</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -32,6 +32,8 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <!--谷歌框架-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -57,12 +59,20 @@
             <scope>test</scope>
         </dependency>
 
+
+        <!--nacos服务的配置中心+-->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>nacos-config-spring-boot-starter</artifactId>
             <version>0.2.1</version>
         </dependency>
 
+        <!--nacos服务的注册中心+-->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+            <version>0.2.3</version>
+        </dependency>
     </dependencies>
 
     <build>
