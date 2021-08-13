@@ -22,15 +22,18 @@ public class TaskServiceImpl implements TaskService {
     public void taskGroupName() {
         Long startTime=System.currentTimeMillis();
         List<Runnable> tasks = Lists.newArrayList();
+
+
+        //这里的3是下面开的线程数量
         final CountDownLatch countDownLatch = new CountDownLatch(3);
         tasks.add(() -> {
-            for (int i = 0; i <8 ; i++) {
+            for (int i = 0; i <80000 ; i++) {
                 System.out.println(i);
             }
             countDownLatch.countDown();
         });
         tasks.add(() -> {
-            for (int i = 0; i <8 ; i++) {
+            for (int i = 0; i <80000; i++) {
                 System.out.println(i);
             }
             countDownLatch.countDown();
