@@ -20,29 +20,34 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void taskGroupName() {
+        Long startTime=System.currentTimeMillis();
         List<Runnable> tasks = Lists.newArrayList();
-        final CountDownLatch countDownLatch = new CountDownLatch(6);
+        final CountDownLatch countDownLatch = new CountDownLatch(3);
         tasks.add(() -> {
+            for (int i = 0; i <8 ; i++) {
+                System.out.println(i);
+            }
+            countDownLatch.countDown();
+        });
+        tasks.add(() -> {
+            for (int i = 0; i <8 ; i++) {
+                System.out.println(i);
+            }
+            countDownLatch.countDown();
 
         });
 
-        tasks.add(() -> {
-
+        tasks.add(() ->{
+            System.out.println("KKKKKKK");
+            countDownLatch.countDown();
         });
 
-        tasks.add(() -> {
-
-        });
-
-        tasks.add(() -> {
-
-        });
-
-        tasks.add(() -> System.out.println(111111));
         try {
             //线程开启
             tasks.forEach(threadPoolTaskExecutor::execute);
+            //主要是等待所有线程结束,再走下面的流程
             countDownLatch.await();
+            System.out.println("张克臻"+(System.currentTimeMillis()-startTime));
         } catch (InterruptedException e) {
             log.error("并行处理失败", e);
         }
