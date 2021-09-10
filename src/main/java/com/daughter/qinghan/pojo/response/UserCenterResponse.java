@@ -28,7 +28,6 @@ public class UserCenterResponse<T>{
         private Integer total;
     }
 
-
     public static void main(String[] args) {
         Map<String, Object> requestMap = new HashMap<>();
         requestMap.put("pageNum",1);
@@ -42,6 +41,9 @@ public class UserCenterResponse<T>{
         String s = OkHttpUtils.get("http://172.29.30.164:5557/fawde/jackfish-permission/permission/getAppPageElemTree/1",headers);
         UserCenterResponse parse = JacksonUtils.parse(s, UserCenterResponse.class);
         System.out.println(parse.getData());
+
+
+
 
 
 
