@@ -9,6 +9,9 @@ import java.util.Objects;
 @AllArgsConstructor
 @Getter
 public enum IsOrNoEnum {
+    /**
+     * 是否更新问题
+     */
     NO(0,"否"),
     YES(1,"是");
     private Integer code;
@@ -19,7 +22,7 @@ public enum IsOrNoEnum {
             return "未知";
         }
         for (IsOrNoEnum value : IsOrNoEnum.values()) {
-            if (value.code==code){
+            if (value.code.equals(code)){
                 return value.message;
             }
         }

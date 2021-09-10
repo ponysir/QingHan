@@ -38,8 +38,6 @@ public class TestDto {
         Map<String, List<TestDto>> collect = testDtos.stream().collect(Collectors.groupingBy(TestDto::getSex));
         System.out.println(map.get(1));
         System.out.println(collect);
-
-
-
     }
+
 }
