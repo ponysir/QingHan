@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.http.MediaType;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +29,10 @@ public class UserCenterResponse<T>{
         private Integer total;
     }
 
+    /**
+     * 注意泛型的使用,需要指定
+     * @param args
+     */
     public static void main(String[] args) {
         Map<String, Object> requestMap = new HashMap<>();
         requestMap.put("pageNum",1);
@@ -41,10 +46,9 @@ public class UserCenterResponse<T>{
         String s = OkHttpUtils.get("http://172.29.30.164:5557/fawde/jackfish-permission/permission/getAppPageElemTree/1",headers);
         UserCenterResponse parse = JacksonUtils.parse(s, UserCenterResponse.class);
         System.out.println(parse.getData());
-
-
-
-
+        UserCenterResponse<List<Integer>> response=new UserCenterResponse();
+        List<Integer> data1 = response.getData();
+        Object data = response.getData();
 
 
     }
