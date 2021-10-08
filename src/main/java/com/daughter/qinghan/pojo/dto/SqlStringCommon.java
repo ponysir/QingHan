@@ -32,5 +32,6 @@ public class SqlStringCommon implements Serializable {
 
     public static void main(String[] args) {
         SqlStringCommon selectSql = new SqlStringCommon("mQ7Ea6S8QkmvJKOictZ6wA==", "22", "");
+        System.out.println("11");
     }
 }
