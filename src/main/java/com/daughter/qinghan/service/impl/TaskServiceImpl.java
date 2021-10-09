@@ -23,7 +23,6 @@ public class TaskServiceImpl implements TaskService {
         Long startTime=System.currentTimeMillis();
         List<Runnable> tasks = Lists.newArrayList();
 
-
         //这里的3是下面开的线程数量
         final CountDownLatch countDownLatch = new CountDownLatch(3);
         tasks.add(() -> {
@@ -44,7 +43,6 @@ public class TaskServiceImpl implements TaskService {
             System.out.println("KKKKKKK");
             countDownLatch.countDown();
         });
-
         try {
             //线程开启
             tasks.forEach(threadPoolTaskExecutor::execute);

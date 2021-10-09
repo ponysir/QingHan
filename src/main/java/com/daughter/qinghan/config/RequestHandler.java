@@ -2,6 +2,7 @@ package com.daughter.qinghan.config;
 
 
 import com.daughter.qinghan.utils.WebHeadUntil;
+import lombok.EqualsAndHashCode;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 统一拦截
- *
  */
+@EqualsAndHashCode
 public class RequestHandler implements HandlerInterceptor {
 
     @Override
@@ -24,4 +25,5 @@ public class RequestHandler implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         WebHeadUntil.remove();
     }
+
 }
